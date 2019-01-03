@@ -3,12 +3,17 @@ API desarrollada como parte del proceso de seleccion de mercadolibre.
 
 Documentacion en carpeta Docs/
 
+Dominio de la APP (AWS)
+http://18.223.151.97:3000/
+
 Pasos de instalacion:
 
 sudo apt-get install curl
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo apt-get install -y build-essential
+sudo apt install make 
+apt install redis-tools
 
 echo "Instalamos 'redis' (master y slave en los puertos 6380 y 6379 respectivamente)..."
 
@@ -21,20 +26,11 @@ cd redis-stable
 make
 make install
 
-REDIS_PORT=6379 \
-REDIS_CONFIG_FILE=/etc/redis/6379.conf \
-REDIS_LOG_FILE=/var/log/redis_6379.log \
-REDIS_DATA_DIR=/var/lib/redis/6379 \
-REDIS_EXECUTABLE=`command -v redis-server` ./utils/install_server.sh
+docker pull redis
 
-REDIS_PORT=6380 \
-REDIS_CONFIG_FILE=/etc/redis/6380.conf \
-REDIS_LOG_FILE=/var/log/redis_6380.log \
-REDIS_DATA_DIR=/var/lib/redis/6380 \
-REDIS_EXECUTABLE=`command -v redis-server` ./utils/install_server.sh
+docker run --name redisMaster -d -p 6379:6379 redis
+docker run --name redisSlave -d -p 6380:6379 redis
 
-service redis_6379 restart
-service redis_6380 restart
 
 echo "Instalamos 'mysql'..."
 
