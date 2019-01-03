@@ -1,0 +1,21 @@
+{
+  "name": "mercadolibreapi",
+  "version": "1.0.0",
+  "description": "Simple MercadoLibre API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "ioredis": "^3.2.2",
+    "mysql2": "^1.5.3"
+  },
+  "author": "Luis Anibal Fabio",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

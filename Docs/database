@@ -1,0 +1,19 @@
+
+CREATE TABLE `calendar` (
+  `id` int(11) NOT NULL,
+  `p1x` int(11) NOT NULL,
+  `p1y` int(11) NOT NULL,
+  `p2x` int(11) NOT NULL,
+  `p2y` int(11) NOT NULL,
+  `p3x` int(11) NOT NULL,
+  `p3y` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `calendar`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `calendar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+
+
